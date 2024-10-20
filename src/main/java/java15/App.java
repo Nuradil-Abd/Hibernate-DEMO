@@ -21,17 +21,17 @@ public class App
 //        DatabaseConnection.getEntityManagerFactory();
 
         BookService bookService = new BookServiceImpl();
-//        System.out.println(bookService.saveBook(
-//                new Book(
-//                "Gumplen",
-//                "Victor Hugo",
-//                BigDecimal.valueOf(1350))
-//        ));
+        System.out.println(bookService.saveBook(
+                new Book(
+                "fasd",
+                "A Z",
+                BigDecimal.valueOf(1800))
+        ));
 
 //        System.out.println(bookService.deleteById(2L));
 
-        List<Book>  bookList = bookService.findAll();
-        System.out.println(bookList);
+//        List<Book>  bookList = bookService.findAll();
+//        System.out.println(bookList);
 
         //update book
 
@@ -51,7 +51,13 @@ public class App
 //        System.out.println(bookService.clear());
 
         //group by author full name
-        System.out.println(bookService.groupByAuthorFullName());
+//        bookService.groupByAuthorFullName();
+
+        //sort universal
+        System.out.println(bookService.sortUniversal("authorFullName"));
+        System.out.println(bookService.sortUniversal("id"));
+        System.out.println(bookService.sortUniversal("price"));
+
 
 
 

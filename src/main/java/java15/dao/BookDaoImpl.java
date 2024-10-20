@@ -148,6 +148,26 @@ public class BookDaoImpl implements BookDao, AutoCloseable {
     }
 
     @Override
+    public List<Book> sortUniversal(String column) {
+        List<Book> results = new ArrayList<>();
+
+        try {
+            em.getTransaction().begin();
+            String queryString = String.format("select b from Book b order by b.%s", column);
+            results = em.createQuery(queryString, Book.class).getResultList();
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            System.out.println("sort error" + e.getMessage());
+        }
+
+        return results;
+    }
+
+
+    @Override
     public void close() throws Exception {
         em.close();
     }

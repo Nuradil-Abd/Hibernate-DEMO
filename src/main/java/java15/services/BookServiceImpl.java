@@ -64,13 +64,18 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Object[]> groupByAuthorFullName() {
+    public void groupByAuthorFullName() {
         List<Object[]> results = bookDao.groupByAuthorFullName();
         for (Object[] result : results) {
             String authorFullName = (String) result[0];
             Long bookCount = (Long) result[1];
             System.out.println("Author :" + authorFullName + " bookCount " + bookCount);
         }
-        return results;
     }
+
+    @Override
+    public List<Book> sortUniversal(String column) {
+        return  bookDao.sortUniversal(column);
+    }
+
 }

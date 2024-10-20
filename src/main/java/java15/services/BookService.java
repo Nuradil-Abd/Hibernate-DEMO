@@ -17,5 +17,6 @@ public interface BookService {
 
     boolean clear();
 
-    List<Object[]> groupByAuthorFullName();
+    void groupByAuthorFullName();
+    List<Book> sortUniversal(String column);
 }

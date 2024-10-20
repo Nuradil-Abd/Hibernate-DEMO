@@ -19,4 +19,5 @@ public interface BookDao {
     boolean clear();
 
     List<Object[]> groupByAuthorFullName();
+    List<Book> sortUniversal(String column);
 }
